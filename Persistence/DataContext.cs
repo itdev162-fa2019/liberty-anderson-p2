@@ -20,14 +20,14 @@ namespace Persistence
 				new Value {Id = 2, Name = "Value2"},
 				new Value {Id = 3, Name = "Value3"}
 			);
-			*/
+			
 			//sample data
 			modelBuilder.Entity<Expense>().HasData(
 				new Expense {ID = 1, Category = "Entertainment", Amount = 25.32m, Date = DateTime.Now},
 				new Expense {ID = 2, Category = "Food", Amount = 78.65m, Date = DateTime.Now},
 				new Expense {ID = 3, Category = "Bills", Amount = 152.26m, Date = DateTime.Now}
 			);
-
+*/
 		}
 	}
 }
