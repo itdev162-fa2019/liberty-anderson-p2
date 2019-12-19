@@ -11,7 +11,8 @@ namespace Persistence
 		public DataContext(DbContextOptions options) : base(options)
 		{
 		}
-/*
+
+		/* yeah, i should delete this, but i want to keep it 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			/* 
@@ -29,5 +30,6 @@ namespace Persistence
 			);
 
 		}*/
+		
 	}
 }

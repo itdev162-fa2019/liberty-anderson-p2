@@ -24,7 +24,14 @@ namespace API.Controllers
 		[HttpGet]
 		public ActionResult<List<Expense>> Get()
 		{
-			return this.context.Expenses.ToList();
+			var expenseList = this.context.Expenses.ToList();
+			expenseList.Sort(delegate(Expense x, Expense y)
+			{
+				return y.Date.CompareTo(x.Date);
+			});
+			
+			return expenseList;
+			//return this.context.Expenses.ToList();
 		}
 
 		/// <summary>
@@ -43,7 +50,7 @@ namespace API.Controllers
 				Date = request.Date
 			};
 
-			context.Expenses.Add(expense); //does seed data have to be manually deleted?
+			context.Expenses.Add(expense);
 			var success = context.SaveChanges() > 0;
 
 			if (success){
