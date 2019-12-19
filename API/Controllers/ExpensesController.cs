@@ -17,11 +17,40 @@ namespace API.Controllers
 			this.context = context;
 		}
 
-		// GET api/posts
+		/// <summary>
+		///  GET api/expenses
+		/// </summary>
+		/// <returns>a list of expenses</returns>
 		[HttpGet]
 		public ActionResult<List<Expense>> Get()
 		{
 			return this.context.Expenses.ToList();
+		}
+
+		/// <summary>
+		/// POST api/expense
+		///</summary>
+		///<param name="request">JSON reqest containing expense fields</param>
+		///<returns>a new expense</returns>
+		[HttpPost]
+		public ActionResult<Expense> Create([FromBody]Expense request)
+		{
+			var expense = new Expense
+			{
+				ID = request.ID,
+				Category = request.Category,
+				Amount = request.Amount,
+				Date = request.Date
+			};
+
+			context.Expenses.Add(expense); //does seed data have to be manually deleted?
+			var success = context.SaveChanges() > 0;
+
+			if (success){
+				return expense;
+			}
+
+			throw new System.Exception("Error creating post");
 		}
 	}
 }
