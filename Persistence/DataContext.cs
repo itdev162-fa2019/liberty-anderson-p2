@@ -11,7 +11,7 @@ namespace Persistence
 		public DataContext(DbContextOptions options) : base(options)
 		{
 		}
-
+/*
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			/* 
@@ -27,7 +27,7 @@ namespace Persistence
 				new Expense {ID = 2, Category = "Food", Amount = 78.65m, Date = DateTime.Now},
 				new Expense {ID = 3, Category = "Bills", Amount = 152.26m, Date = DateTime.Now}
 			);
-*/
-		}
+
+		}*/
 	}
 }
